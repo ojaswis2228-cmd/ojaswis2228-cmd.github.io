@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ojaswi Singh — AI Research Intern and B.Tech CSE (AI/ML) student at Amity University. Computer vision, NLP and machine learning research, projects and publications.">
+<meta name="author" content="Ojaswi Singh">
+<meta name="theme-color" content="#F6F3EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12141A" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ojaswis2228-cmd.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Ojaswi Singh">
+<meta property="og:title" content="Ojaswi Singh — AI Researcher &amp; CS Undergraduate">
+<meta property="og:description" content="Blur-aware transformer research for monocular depth estimation, NLP systems, and open-source AI projects.">
+<meta property="og:url" content="https://ojaswis2228-cmd.github.io/">
+<meta property="og:image" content="https://ojaswis2228-cmd.github.io/profile.jpg">
+<meta property="og:image:alt" content="Portrait of Ojaswi Singh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ojaswi Singh — AI Researcher &amp; CS Undergraduate">
+<meta name="twitter:description" content="Blur-aware transformer research for monocular depth estimation, NLP systems, and open-source AI projects.">
+<meta name="twitter:image" content="https://ojaswis2228-cmd.github.io/profile.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23F6F3EC'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%232B3A8F' stroke-width='1.2' opacity='.45'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%232B3A8F' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.2' fill='%23B4622C'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ojaswi Singh",
+  "url": "https://ojaswis2228-cmd.github.io/",
+  "image": "https://ojaswis2228-cmd.github.io/profile.jpg",
+  "jobTitle": "AI Research Intern",
+  "email": "mailto:ojaswi.singh2@s.amity.edu",
+  "address": {"@type": "PostalAddress", "addressLocality": "Noida", "addressRegion": "Uttar Pradesh", "addressCountry": "IN"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Amity University, Noida"},
+    {"@type": "CollegeOrUniversity", "name": "Birkbeck, University of London"}
+  ],
+  "knowsAbout": ["Computer Vision", "Monocular Depth Estimation", "Natural Language Processing", "Deep Learning", "Machine Learning", "Python"],
+  "sameAs": [
+    "https://www.linkedin.com/in/ojaswis29",
+    "https://github.com/ojaswis2228-cmd"
+  ]
+}
+</script>
+
+<style>
+  html{color-scheme:light dark;}
+  body{margin:0;}
+  img{max-width:100%;}
+  [hidden]{display:none !important;}
+</style>
+<title>Ojaswi Singh — AI Researcher &amp; CS Undergraduate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper: #F6F3EC;
+    --paper-raise: #FBF9F4;
+    --ink: #17181A;
+    --slate: #5B6472;
+    --slate-soft: #8A8F98;
+    --accent: #2B3A8F;
+    --accent-soft: #DCE1F5;
+    --warm: #B4622C;
+    --warm-soft: #F1DFCF;
+    --line: #DFDACD;
+    --shadow: 0 1px 2px rgba(23,24,26,0.04);
+    --ring: 0 0 0 3px var(--accent-soft);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #12141A; --paper-raise: #171A21; --ink: #ECE9E1;
+      --slate: #9AA2B4; --slate-soft: #6B7284; --accent: #7C8CFF;
+      --accent-soft: #232B52; --warm: #E29257; --warm-soft: #3A2A1D;
+      --line: #292C34; --shadow: 0 1px 2px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #12141A; --paper-raise: #171A21; --ink: #ECE9E1;
+    --slate: #9AA2B4; --slate-soft: #6B7284; --accent: #7C8CFF;
+    --accent-soft: #232B52; --warm: #E29257; --warm-soft: #3A2A1D;
+    --line: #292C34; --shadow: 0 1px 2px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Source Sans 3', system-ui, -apple-system, sans-serif;
+    font-size:17px; line-height:1.6; padding-inline:20px;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:inherit;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0;}
+  .wrap{max-width:920px; margin:0 auto; position:relative;}
+  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
+  .mono{font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;} }
+
+  /* reveal-on-scroll (safe default = visible) */
+  .reveal{opacity:1; transform:none;}
+  .reveal.ready{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* header */
+  header{
+    display:flex; align-items:center; justify-content:space-between; padding-block:22px;
+    border-bottom:1px solid var(--line); margin-bottom:clamp(30px,6vw,60px); gap:16px; flex-wrap:wrap;
+    position:sticky; top:0; background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:blur(6px); z-index:10;
+  }
+  .wordmark{font-family:'Fraunces', serif; font-weight:600; font-size:19px;}
+  nav{display:flex; gap:22px; font-size:14px; color:var(--slate); flex-wrap:wrap; align-items:center;}
+  nav a{text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav a:hover, nav a:focus-visible{color:var(--ink); border-color:var(--warm);}
+  .theme-toggle{
+    border:1px solid var(--line); background:var(--paper-raise); color:var(--slate);
+    width:32px; height:32px; border-radius:50%; cursor:pointer; display:grid; place-items:center;
+    padding:0; transition:border-color .15s, color .15s;
+  }
+  .theme-toggle:hover{border-color:var(--accent); color:var(--accent);}
+  .theme-toggle svg{width:15px; height:15px; display:block;}
+  :root[data-theme="dark"] .icon-sun, .icon-moon{display:none;}
+  :root[data-theme="dark"] .icon-moon{display:block;}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .icon-sun{display:none;}
+    :root:not([data-theme="light"]) .icon-moon{display:block;}
+  }
+
+  /* hero */
+  .hero{
+    position:relative; display:grid; grid-template-columns:auto 1.1fr; gap:clamp(24px,5vw,52px);
+    align-items:center; padding-block:clamp(20px,4vw,32px) clamp(52px,9vw,96px); isolation:isolate;
+  }
+  .bokeh{position:absolute; inset:-40px -20px; z-index:-1; overflow:hidden; pointer-events:none;}
+  .bokeh span{position:absolute; border-radius:50%; filter:blur(6px); opacity:.35;}
+  @media (prefers-reduced-motion: no-preference){
+    .bokeh span{animation:drift 16s ease-in-out infinite;}
+  }
+  @keyframes drift{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(10px,-16px);} }
+  .b1{width:70px; height:70px; left:2%; top:6%; background:var(--accent-soft); animation-delay:0s;}
+  .b2{width:44px; height:44px; left:32%; top:78%; background:var(--warm-soft); animation-delay:2.4s;}
+  .b3{width:96px; height:96px; left:85%; top:14%; background:var(--accent-soft); animation-delay:1.1s;}
+  .b4{width:30px; height:30px; left:60%; top:8%; background:var(--warm-soft); animation-delay:3.6s;}
+  .b5{width:54px; height:54px; left:92%; top:70%; background:var(--accent-soft); animation-delay:5s;}
+
+  .portrait-wrap{position:relative; width:clamp(128px,20vw,168px); height:clamp(128px,20vw,168px); flex:0 0 auto;}
+  .portrait-ring{position:absolute; inset:-9px; border-radius:50%; background:conic-gradient(from 0deg, var(--accent), var(--warm), var(--accent-soft), var(--accent));}
+  @media (prefers-reduced-motion: no-preference){ .portrait-ring{animation:spin 14s linear infinite;} }
+  @keyframes spin{ to{transform:rotate(360deg);} }
+  .portrait-wrap img{
+    position:relative; width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;
+    border:4px solid var(--paper);
+  }
+  .portrait-dot{position:absolute; right:-4px; bottom:-2px; width:16px; height:16px; border-radius:50%; background:var(--warm); border:3px solid var(--paper);}
+
+  .hero-copy{animation:fadeUp .7s ease-out both;}
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;} }
+  .hero h1{font-size:clamp(34px,5.6vw,54px); font-weight:600; line-height:1.05; margin-top:10px;}
+  .hero h1 em{font-style:italic; font-weight:500; color:var(--warm);}
+  .hero p.lede{max-width:56ch; margin-top:14px; font-size:17.5px; color:var(--slate);}
+  .hero-links{display:flex; gap:10px; flex-wrap:wrap; margin-top:22px;}
+  .pill-link{
+    display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line); border-radius:999px;
+    padding:8px 15px; font-size:14px; text-decoration:none; background:var(--paper-raise);
+    transition:border-color .15s, color .15s, transform .15s;
+  }
+  .pill-link:hover, .pill-link:focus-visible{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+  .stat-row{display:flex; gap:26px; margin-top:26px; flex-wrap:wrap;}
+  .stat-row .stat b{display:block; font-family:'Fraunces',serif; font-size:25px; font-weight:600;}
+  .stat-row .stat span{font-size:12px; color:var(--slate-soft); text-transform:uppercase; letter-spacing:.06em;}
+
+  section{padding-block:clamp(40px,7vw,72px); border-top:1px solid var(--line);}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:28px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(23px,3.2vw,29px); font-weight:600;}
+
+  /* about */
+  .about-quote{font-family:'Fraunces', serif; font-style:italic; font-size:clamp(19px,2.6vw,23px); font-weight:500; line-height:1.45; max-width:64ch; color:var(--ink);}
+  .about-body{margin-top:16px; max-width:66ch; color:var(--slate); font-size:15.5px;}
+
+  /* education */
+  .entry-list{display:flex; flex-direction:column; gap:20px;}
+  .entry{display:grid; grid-template-columns:1fr auto; gap:5px 18px; align-items:baseline;}
+  .entry .org{font-weight:600; font-size:16.5px;}
+  .entry .role{color:var(--slate); font-size:14.5px;}
+  .entry .when{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--slate-soft); white-space:nowrap; text-align:right;}
+  .entry .loc{grid-column:2; font-size:12.5px; color:var(--slate-soft); text-align:right;}
+  .entry ul{margin:5px 0 0; padding-left:19px; color:var(--slate); font-size:14.5px; grid-column:1/-1;}
+  .entry li{margin-bottom:3px;}
+
+  /* experience timeline */
+  .timeline{position:relative; padding-left:26px; border-left:1px solid var(--line);}
+  .tl-item{position:relative; padding-bottom:32px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:""; position:absolute; left:-31px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--paper); border:2px solid var(--accent);}
+  .tl-item h3{font-size:17px; font-weight:600;}
+  .tl-item .meta{font-size:12.5px; color:var(--slate-soft); margin-top:2px; font-family:'IBM Plex Mono', monospace;}
+  .tl-item ul{margin:9px 0 0; padding-left:19px; color:var(--slate); font-size:14.5px;}
+  .tl-item li{margin-bottom:5px;}
+
+  /* research spotlight */
+  .spotlight{
+    background:var(--paper-raise); border:1px solid var(--line); border-radius:16px;
+    padding:clamp(22px,4vw,34px); box-shadow:var(--shadow);
+  }
+  .spotlight-top{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start;}
+  .spotlight h3{font-size:clamp(21px,3vw,26px); margin-top:6px;}
+  .spotlight .summary{max-width:60ch; color:var(--slate); font-size:15px; margin-top:10px;}
+  .badge-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{font-size:11.5px; font-family:'IBM Plex Mono', monospace; padding:3px 9px; border-radius:6px; background:var(--accent-soft); color:var(--accent);}
+  .chip.warm{background:var(--warm-soft); color:var(--warm);}
+
+  .barchart{margin-top:26px; display:flex; flex-direction:column; gap:10px;}
+  .bar-row{display:grid; grid-template-columns:112px 1fr 52px; align-items:center; gap:10px; font-size:13px;}
+  .bar-row .label{color:var(--slate); font-family:'IBM Plex Mono', monospace; font-size:12px;}
+  .bar-track{height:14px; border-radius:5px; background:var(--line); overflow:hidden; position:relative;}
+  .bar-fill{height:100%; border-radius:5px; background:linear-gradient(90deg, var(--accent), var(--warm)); width:0%; transition:width 1s cubic-bezier(.22,.9,.3,1);}
+  .bar-row.in .bar-fill{ }
+  .bar-row .val{font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums;}
+  .bar-note{margin-top:16px; font-size:12.5px; color:var(--slate-soft);}
+
+  .findings{margin-top:22px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .find{border:1px solid var(--line); border-radius:10px; padding:14px; background:var(--paper);}
+  .find b{display:block; font-family:'Fraunces',serif; font-size:19px;}
+  .find span{font-size:12px; color:var(--slate-soft);}
+
+  /* projects */
+  .projects{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
+  .project{
+    background:var(--paper-raise); border:1px solid var(--line); border-radius:14px;
+    padding:22px; display:flex; flex-direction:column; gap:13px; box-shadow:var(--shadow);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .project:hover{transform:translateY(-3px); border-color:var(--accent); box-shadow:0 8px 22px rgba(23,24,26,0.08);}
+  .project .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); letter-spacing:.05em; text-transform:uppercase;}
+  .project h3{font-size:19px; margin-top:4px;}
+  .project p{color:var(--slate); font-size:14px; margin:0;}
+  .project .viz{border:1px solid var(--line); border-radius:9px; background:var(--paper); padding:9px;}
+  .project .stack{display:flex; gap:6px; flex-wrap:wrap; margin-top:auto;}
+  .project .repo-link{font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:5px;}
+  .project .repo-link:hover{text-decoration:underline;}
+  .sub-list{display:flex; flex-direction:column; gap:9px; margin-top:2px;}
+  .sub-item{display:flex; justify-content:space-between; gap:8px; font-size:13.5px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:var(--paper);}
+  .sub-item span.n{color:var(--ink); font-weight:600;}
+  .sub-item span.t{color:var(--slate-soft); font-family:'IBM Plex Mono', monospace; font-size:11.5px; white-space:nowrap;}
+
+  /* skills */
+  .skill-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px 30px;}
+  .skill-cat .cat-label{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--slate-soft); text-transform:uppercase; letter-spacing:.08em; margin-bottom:9px;}
+  .tagset{display:flex; flex-wrap:wrap; gap:7px;}
+  .tagset span{font-size:13.5px; padding:5px 11px; border:1px solid var(--line); border-radius:7px; background:var(--paper-raise);}
+
+  /* honors */
+  .honor-list{display:flex; flex-direction:column; gap:15px;}
+  .honor{display:flex; gap:13px; align-items:flex-start; padding:12px; border-radius:10px; transition:background .2s;}
+  .honor:hover{background:var(--paper-raise);}
+  .honor .mark{width:8px; height:8px; border-radius:50%; background:var(--warm); margin-top:8px; flex:0 0 auto;}
+  .honor .h-title{font-weight:600;}
+  .honor .h-meta{color:var(--slate-soft); font-size:13.5px; display:block; margin-top:1px;}
+  .honor-feature{
+    border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--paper-raise);
+    box-shadow:var(--shadow); margin-bottom:8px;
+  }
+  .honor-feature-top{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline;}
+  .honor-feature .h-title{font-family:'Fraunces',serif; font-size:19px; font-weight:600;}
+  .honor-photos{display:grid; grid-template-columns:1.1fr 1fr 0.9fr; gap:8px; margin-top:14px;}
+  .honor-photos img{width:100%; height:150px; object-fit:cover; border-radius:8px; border:1px solid var(--line); display:block;}
+  .honor-photos figure{margin:0;}
+  .honor-photos figcaption{font-size:11px; color:var(--slate-soft); margin-top:5px; font-family:'IBM Plex Mono', monospace;}
+  .honor-photos.single{grid-template-columns:minmax(0,260px);}
+  .honor-photos.single img{height:210px; object-position:top;}
+  @media (max-width:640px){ .honor-photos{grid-template-columns:1fr 1fr;} .honor-photos figure:last-child{grid-column:1/-1;} }
+
+  .badge-grid{display:flex; gap:14px; flex-wrap:wrap; margin-top:16px;}
+  .badge-card{
+    display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:12px;
+    padding:10px 16px 10px 10px; background:var(--paper); min-width:230px; flex:1 1 260px;
+  }
+  .badge-card img{width:52px; height:52px; object-fit:contain; flex:0 0 auto;}
+  .badge-card .b-name{font-weight:600; font-size:14px;}
+  .badge-card .b-issuer{font-size:12px; color:var(--slate-soft);}
+
+  /* by the numbers strip */
+  .numbers{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; text-align:center;}
+  .numbers .n b{display:block; font-family:'Fraunces',serif; font-size:28px;}
+  .numbers .n span{font-size:11.5px; color:var(--slate-soft); text-transform:uppercase; letter-spacing:.06em;}
+
+  footer{padding-block:clamp(44px,8vw,68px) 40px; text-align:center;}
+  footer h2{font-size:clamp(26px,4vw,36px); margin-bottom:14px;}
+  footer p{color:var(--slate); max-width:46ch; margin:0 auto 24px;}
+  .foot-links{display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
+  .copyright{margin-top:44px; font-size:12.5px; color:var(--slate-soft); text-align:center;}
+
+  @media (max-width:720px){
+    .hero{grid-template-columns:1fr; text-align:left;}
+    .findings{grid-template-columns:1fr 1fr;}
+    .numbers{grid-template-columns:1fr 1fr;}
+    .entry{grid-template-columns:1fr;}
+    .entry .when, .entry .loc{text-align:left; grid-column:1;}
+    .bar-row{grid-template-columns:88px 1fr 44px;}
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="wordmark">Ojaswi Singh</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="border-top:none; padding-top:0;">
+    <div class="bokeh" aria-hidden="true">
+      <span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait-ring"></div>
+      <img src="profile.jpg" alt="Portrait of Ojaswi Singh" width="168" height="168">
+      <div class="portrait-dot" title="Open to work"></div>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">AI Research Intern &middot; Computer Vision &middot; NLP</p>
+      <h1>Systems that <em>see</em>,<br>read, and reason.</h1>
+      <p class="lede">Pre-final-year B.Tech CSE (AI/ML) student at Amity University, currently researching blur-aware transformer architectures for monocular depth estimation &mdash; alongside NLP, community leadership, and a growing open-source portfolio.</p>
+      <div class="hero-links">
+        <a class="pill-link" href="mailto:ojaswi.singh2@s.amity.edu">Email</a>
+        <a class="pill-link" href="https://www.linkedin.com/in/ojaswis29" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill-link" href="https://github.com/ojaswis2228-cmd" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>9.44</b><span>CGPA / 10.0</span></div>
+        <div class="stat"><b>95.7%</b><span>Model Accuracy</span></div>
+        <div class="stat"><b>30 / 600</b><span>Research Cohort</span></div>
+        <div class="stat"><b>6</b><span>Public Repos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="section-head"><h2>About</h2></div>
+    <p class="about-quote">"Pre-final-year B.Tech CSE (AI/ML) student with interests in Machine Learning, Deep Learning, Computer Vision, and Generative AI."</p>
+    <p class="about-body">Currently working as an AI Research Intern, developing a research project on single-image depth-from-defocus estimation using blur-aware transformer architectures. Also built an AI-based fake news and propaganda detection system using NLP and machine learning, achieving over 95% classification accuracy. Beyond research, serves as Operations Manager at Microsoft Tech Community, contributing to technical events, community initiatives, and student engagement &mdash; while continuing to strengthen DSA, AI/ML, and software development skills.</p>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="section-head"><h2>Education</h2></div>
+    <div class="entry-list">
+      <div class="entry">
+        <div class="org">Amity University</div>
+        <div class="when">2024&ndash;2028</div>
+        <div class="role">B.Tech, Computer Science &middot; Minor in AI &amp; Machine Learning</div>
+        <div class="loc">Noida, Uttar Pradesh</div>
+        <ul><li>CGPA: <span class="mono">9.44</span>/10 (current)</li></ul>
+      </div>
+      <div class="entry">
+        <div class="org">Birkbeck, University of London</div>
+        <div class="when">Apr&ndash;May 2026</div>
+        <div class="role">Study Abroad Programme</div>
+        <div class="loc">London, United Kingdom</div>
+        <ul>
+          <li>Coursework in Business Management and New Leadership in Cultural Contexts (NLCC)</li>
+          <li>Collaborated on a comparative Country Report; Best Research Paper Award at the associated conference</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="section-head"><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>AI Research Intern &middot; Amity University</h3>
+        <div class="meta">JAN 2026 &mdash; PRESENT &middot; NOIDA, UTTAR PRADESH</div>
+        <ul>
+          <li>Selected among <b>30 students from 600+ applicants</b> for a university-led AI research internship.</li>
+          <li>Developing a transformer-based framework for single-image depth estimation from defocused images.</li>
+          <li>Implemented preprocessing, training, and inference pipelines using Python, TensorFlow, and OpenCV.</li>
+          <li>Conducted model evaluation and performance analysis for monocular depth prediction tasks.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <h3>Operations Manager &middot; Microsoft Tech Community</h3>
+        <div class="meta">SEP 2025 &mdash; PRESENT &middot; NOIDA, UTTAR PRADESH</div>
+        <ul>
+          <li>Promoted from Core Member to Operations Manager for contributions to community operations and event management.</li>
+          <li>Led operational planning and coordination for technical workshops, hackathons, and student engagement initiatives.</li>
+          <li>Worked with organizing teams to streamline event execution, logistics, and participant communication.</li>
+          <li>Supported outreach programs focused on AI, cloud computing, and emerging technologies.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="reveal">
+    <div class="section-head"><h2>Research Spotlight</h2></div>
+    <div class="spotlight">
+      <div class="spotlight-top">
+        <div>
+          <span class="eyebrow">Flagship Project</span>
+          <h3>Blur-Aware Transformer-Based Monocular Depth Estimation</h3>
+          <p class="summary">A comparative study of seven CNN and Transformer backbones for estimating a dense depth map from a single RGB image, trained on NYU Depth V2 under identical conditions with a shared decoder &mdash; isolating the encoder as the only variable.</p>
+        </div>
+        <div class="badge-row">
+          <span class="chip">Swin Transformer</span>
+          <span class="chip warm">MIT License</span>
+          <span class="chip">★ 1</span>
+        </div>
+      </div>
+
+      <div class="barchart" aria-label="delta-1 accuracy by backbone, higher is better">
+        <div class="bar-row"><span class="label">Swin-Tiny</span><div class="bar-track"><div class="bar-fill" data-w="83"></div></div><span class="val">0.503</span></div>
+        <div class="bar-row"><span class="label">ViT-Small</span><div class="bar-track"><div class="bar-fill" data-w="72"></div></div><span class="val">0.439</span></div>
+        <div class="bar-row"><span class="label">ResNet18</span><div class="bar-track"><div class="bar-fill" data-w="70"></div></div><span class="val">0.428</span></div>
+        <div class="bar-row"><span class="label">ResNet50</span><div class="bar-track"><div class="bar-fill" data-w="69"></div></div><span class="val">0.422</span></div>
+        <div class="bar-row"><span class="label">VGG16</span><div class="bar-track"><div class="bar-fill" data-w="65"></div></div><span class="val">0.395</span></div>
+        <div class="bar-row"><span class="label">MobileNetV3</span><div class="bar-track"><div class="bar-fill" data-w="59"></div></div><span class="val">0.355</span></div>
+        <div class="bar-row"><span class="label">ConvNeXt-T</span><div class="bar-track"><div class="bar-fill" data-w="55"></div></div><span class="val">0.333</span></div>
+      </div>
+      <p class="bar-note">δ1 accuracy (higher is better) &middot; pilot run, 240 train / 60 val samples, 224&times;224 input, frozen ImageNet-pretrained encoders, shared trainable decoder.</p>
+
+      <div class="findings">
+        <div class="find"><b>Swin-Tiny</b><span>Lowest MAE, RMSE &amp; AbsRel</span></div>
+        <div class="find"><b>ResNet18</b><span>Fastest &mdash; 322.8 FPS</span></div>
+        <div class="find"><b>MobileNetV3</b><span>Lightest deployable option</span></div>
+      </div>
+      <p class="bar-note">Base research paper: Eigen, Puhrsch &amp; Fergus (2014), <em>Depth Map Prediction from a Single Image using a Multi-Scale Deep Network</em>.</p>
+      <a class="repo-link" style="margin-top:14px; display:inline-block;" href="https://github.com/ojaswis2228-cmd/Blur-Aware-Transformer-Based-Monocular-Depth-Estimation" target="_blank" rel="noopener">View repository &amp; full results &rarr;</a>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="section-head"><h2>Projects</h2></div>
+    <div class="projects">
+      <div class="project">
+        <div>
+          <span class="tag">Natural Language Processing</span>
+          <h3>Fake News &amp; Propaganda Detection</h3>
+          <p>NLP classifier separating credible reporting from propaganda-risk content.</p>
+        </div>
+        <svg class="viz" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter plot of classified articles with a decision boundary, annotated 95.7 percent accuracy">
+          <line x1="0" y1="95" x2="260" y2="15" stroke="var(--slate-soft)" stroke-width="1.2" stroke-dasharray="3 4"/>
+          <g fill="var(--accent)">
+            <circle cx="40" cy="30" r="4"/><circle cx="70" cy="20" r="4"/><circle cx="95" cy="45" r="4"/>
+            <circle cx="120" cy="25" r="4"/><circle cx="150" cy="15" r="4"/><circle cx="180" cy="30" r="4"/>
+            <circle cx="60" cy="50" r="4"/><circle cx="200" cy="20" r="4"/>
+          </g>
+          <g fill="var(--warm)">
+            <circle cx="50" cy="80" r="4"/><circle cx="90" cy="95" r="4"/><circle cx="130" cy="75" r="4"/>
+            <circle cx="160" cy="90" r="4"/><circle cx="190" cy="70" r="4"/><circle cx="220" cy="85" r="4"/>
+            <circle cx="230" cy="60" r="4"/><circle cx="110" cy="100" r="4"/>
+          </g>
+          <text x="250" y="12" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--ink)" font-weight="600">95.7%</text>
+        </svg>
+        <p style="font-size:13px;">TF&#8209;IDF, Logistic Regression &amp; Linear SVM on 72,000+ articles &middot; Streamlit app for real-time credibility scoring.</p>
+        <div class="stack"><span class="chip">Scikit-Learn</span><span class="chip">Streamlit</span><span class="chip">Pandas</span></div>
+        <a class="repo-link" href="https://github.com/ojaswis2228-cmd/fake-news-propaganda-detection-system" target="_blank" rel="noopener">View repository &rarr;</a>
+      </div>
+
+      <div class="project">
+        <div>
+          <span class="tag warm">Biomechanics &middot; Signal Processing</span>
+          <h3>Gait Cycle Segmentation</h3>
+          <p>vGRF-based gait cycle segmentation pipeline, IIT Kharagpur dataset.</p>
+        </div>
+        <svg class="viz" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vertical ground reaction force waveform with segmented gait cycle boundaries">
+          <path d="M6,90 C20,20 34,20 46,90 C58,20 72,20 84,90 C96,20 110,20 122,90 C134,20 148,20 160,90 C172,20 186,20 198,90 C210,20 224,20 236,90 C248,20 254,20 254,90" fill="none" stroke="var(--warm)" stroke-width="2"/>
+          <g stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3">
+            <line x1="46" y1="10" x2="46" y2="100"/><line x1="122" y1="10" x2="122" y2="100"/><line x1="198" y1="10" x2="198" y2="100"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--slate-soft)">
+            <text x="26" y="106">CYCLE 1</text><text x="102" y="106">CYCLE 2</text><text x="178" y="106">CYCLE 3</text>
+          </g>
+        </svg>
+        <p style="font-size:13px;">Ground-reaction-force gait cycle detection across multiple subjects (Sub01&ndash;Sub05, healthy &amp; affected groups).</p>
+        <div class="stack"><span class="chip warm">Python</span><span class="chip warm">Cython</span><span class="chip warm">NumPy</span></div>
+        <a class="repo-link" href="https://github.com/ojaswis2228-cmd/Gait-Analysis-IITKGP" target="_blank" rel="noopener">View repository &rarr;</a>
+      </div>
+
+      <div class="project">
+        <div>
+          <span class="tag">CodeAlpha AI Internship</span>
+          <h3>Three-Project AI Toolkit</h3>
+          <p>A trio of applied AI tools built during the CodeAlpha internship, each shipped with a Gradio interface.</p>
+        </div>
+        <div class="sub-list">
+          <div class="sub-item"><span class="n">Object Detection &amp; Tracking</span><span class="t">YOLO11n + ByteTrack</span></div>
+          <div class="sub-item"><span class="n">University FAQ Chatbot</span><span class="t">TF&#8209;IDF + Cosine Sim.</span></div>
+          <div class="sub-item"><span class="n">Language Translation Tool</span><span class="t">Deep Translator</span></div>
+        </div>
+        <p style="font-size:13px;">Multi-object tracking with persistent IDs, a 35-FAQ university support bot, and an auto-detect translation interface &mdash; all runnable from Google Colab.</p>
+        <div class="stack"><span class="chip">OpenCV</span><span class="chip">Gradio</span><span class="chip">Colab</span></div>
+        <a class="repo-link" href="https://github.com/ojaswis2228-cmd?tab=repositories" target="_blank" rel="noopener">Browse all repositories &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="section-head"><h2>Skills &amp; Certifications</h2></div>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <div class="cat-label">Programming Languages</div>
+        <div class="tagset"><span>Python</span><span>C++</span><span>C</span><span>Java</span></div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Core Computer Science</div>
+        <div class="tagset"><span>Data Structures &amp; Algorithms</span><span>OOP</span><span>Problem Solving</span></div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">AI &amp; Machine Learning</div>
+        <div class="tagset"><span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span><span>NLP</span><span>Generative AI</span><span>Prompt Engineering</span></div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Libraries &amp; Frameworks</div>
+        <div class="tagset"><span>TensorFlow</span><span>Scikit-Learn</span><span>Pandas</span><span>NumPy</span><span>OpenCV</span><span>Streamlit</span></div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Tools</div>
+        <div class="tagset"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Google Colab</span><span>Jupyter</span></div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Languages</div>
+        <div class="tagset"><span>English &mdash; Professional</span><span>Hindi &mdash; Native</span><span>Spanish &mdash; Conversational</span></div>
+      </div>
+    </div>
+    <div class="skill-cat" style="margin-top:22px;">
+      <div class="cat-label">Certifications &amp; Badges</div>
+      <div class="badge-grid">
+        <div class="badge-card">
+          <img src="aiskillsfest-badge.png" alt="Microsoft AI Skills Fest 2026 badge" loading="lazy">
+          <div><div class="b-name">AI Skills Fest 2026</div><div class="b-issuer">Microsoft &middot; via Credly</div></div>
+        </div>
+        <div class="badge-card">
+          <img src="mckinsey-badge.png" alt="McKinsey.org Forward Program badge" loading="lazy">
+          <div><div class="b-name">Forward Program</div><div class="b-issuer">McKinsey.org &middot; via Credly</div></div>
+        </div>
+      </div>
+      <div class="tagset" style="margin-top:12px;">
+        <span>NVIDIA DLI &mdash; Fundamentals of Deep Learning</span>
+        <span>Google Generative AI &amp; Prompt Engineering Specialization (4-course)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="honors" class="reveal">
+    <div class="section-head"><h2>Honors &amp; Awards</h2></div>
+    <div class="honor-feature">
+      <div class="honor-feature-top">
+        <div>
+          <span class="eyebrow">1st Position &middot; 6 Aug 2026</span>
+          <div class="h-title" style="margin-top:4px;">Amity Ideathon 2026 &mdash; AI, Digital Technologies &amp; Smart Systems</div>
+          <span class="h-meta">With teammates Mahatva Goel &amp; Arihant Jain &middot; powered by IEEE Region 10 &middot; awarded on World Entrepreneurship Day</span>
+        </div>
+      </div>
+      <div class="honor-photos">
+        <figure><img src="ideathon-stage.jpg" alt="Ojaswi Singh's team receiving the trophy on stage at Amity Ideathon 2026" loading="lazy"><figcaption>On stage, 1st position</figcaption></figure>
+        <figure><img src="ideathon-trophy.jpg" alt="Close-up of the Amity Ideathon 2026 1st position trophy" loading="lazy"><figcaption>The trophy</figcaption></figure>
+        <figure><img src="ideathon-certificate.jpg" alt="Official Certificate of Merit for Ojaswi Singh, Amity Ideathon 2026" loading="lazy"><figcaption>Certificate of Merit</figcaption></figure>
+      </div>
+    </div>
+    <div class="honor-feature">
+      <div class="honor-feature-top">
+        <div>
+          <span class="eyebrow">Best Research Paper &middot; 11 May 2026</span>
+          <div class="h-title" style="margin-top:4px;">"Smart City Technologies in London: Role of AI and Digital Innovation"</div>
+          <span class="h-meta">International Conference on Global Synergy: Shaping New-Age Management and Enterprise Development with Disruptive Technology &middot; Amity University, London &middot; alongside the Birkbeck study abroad programme</span>
+        </div>
+      </div>
+      <div class="honor-photos">
+        <figure><img src="research-paper-award.jpg" alt="Amity University Award for Best Research Paper Presentation, awarded to Ojaswi Singh" loading="lazy"><figcaption>Best Research Paper Award</figcaption></figure>
+        <figure><img src="certificate-appreciation.jpg" alt="Amity University Students' Certificate of Appreciation, awarded to Ojaswi Singh" loading="lazy"><figcaption>Certificate of Appreciation</figcaption></figure>
+        <figure><img src="certificate-participation.jpg" alt="Amity University Certificate of Participation in the Research Paper Presentation, awarded to Ojaswi Singh" loading="lazy"><figcaption>Certificate of Participation</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="honor-feature">
+      <div class="honor-feature-top">
+        <div>
+          <span class="eyebrow">100% Merit Scholarship &middot; AY 2025&ndash;26</span>
+          <div class="h-title" style="margin-top:4px;">100% Scholarship Holder, Amity University</div>
+          <span class="h-meta">Amity School of Engineering &amp; Technology &middot; full tuition waiver continued from the "On Admission Merit Scholarship" on academic performance</span>
+        </div>
+      </div>
+      <div class="honor-photos single">
+        <figure><img src="scholarship-letter.jpg" alt="Amity University 100% Merit Scholarship letter for Academic Year 2025-26, addressed to Ojaswi Singh" loading="lazy"><figcaption>Scholarship letter, AY 2025&ndash;26</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="numbers">
+      <div class="n"><b>500+</b><span>LinkedIn Network</span></div>
+      <div class="n"><b>704</b><span>Followers</span></div>
+      <div class="n"><b>6</b><span>Public Repositories</span></div>
+      <div class="n"><b>72K+</b><span>Articles Modeled</span></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p class="eyebrow" style="text-align:center;">Get in touch</p>
+    <h2>Let's build something that sees clearly.</h2>
+    <p>Open to research collaborations, internships, and AI/ML engineering roles.</p>
+    <div class="foot-links">
+      <a class="pill-link" href="mailto:ojaswi.singh2@s.amity.edu">Email</a>
+      <a class="pill-link" href="https://www.linkedin.com/in/ojaswis29" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill-link" href="https://github.com/ojaswis2228-cmd" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+  <div class="copyright">&copy; 2026 Ojaswi Singh</div>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  if (stored === 'dark' || stored === 'light'){
+    root.setAttribute('data-theme', stored);
+    root.style.colorScheme = stored;
+  }
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    var isDark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    root.style.colorScheme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  var sections = document.querySelectorAll('.reveal');
+  sections.forEach(function(el){ el.classList.add('ready'); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+        if (entry.target.querySelectorAll) {
+          entry.target.querySelectorAll('.bar-fill').forEach(function(bar){
+            bar.style.width = bar.getAttribute('data-w') + '%';
+          });
+        }
+      }
+    });
+  }, {threshold: 0.15});
+
+  sections.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

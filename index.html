@@ -63,8 +63,8 @@
     --slate-soft: #8A8F98;
     --accent: #2B3A8F;
     --accent-soft: #DCE1F5;
-    --warm: #B4622C;
-    --warm-soft: #F1DFCF;
+    --warm: #9C5322;
+    --warm-soft: #F4E3D4;
     --line: #DFDACD;
     --shadow: 0 1px 2px rgba(23,24,26,0.04);
     --ring: 0 0 0 3px var(--accent-soft);
@@ -83,6 +83,25 @@
     --accent-soft: #232B52; --warm: #E29257; --warm-soft: #3A2A1D;
     --line: #292C34; --shadow: 0 1px 2px rgba(0,0,0,0.35);
   }
+
+  /* ---- colour palettes ---- */
+  :root[data-palette="orchid"]{--accent:#6B3FA0; --accent-soft:#EBE0F7; --warm:#A83C68; --warm-soft:#F8DDE9;}
+  @media (prefers-color-scheme: dark){
+    :root[data-palette="orchid"]:not([data-theme="light"]){--accent:#C0A6FF; --accent-soft:#2E2348; --warm:#F093B8; --warm-soft:#3E2333;}
+  }
+  :root[data-theme="dark"][data-palette="orchid"]{--accent:#C0A6FF; --accent-soft:#2E2348; --warm:#F093B8; --warm-soft:#3E2333;}
+
+  :root[data-palette="verdant"]{--accent:#1C6B5A; --accent-soft:#D6EDE5; --warm:#86620F; --warm-soft:#F2E7CC;}
+  @media (prefers-color-scheme: dark){
+    :root[data-palette="verdant"]:not([data-theme="light"]){--accent:#5FD4B4; --accent-soft:#17362F; --warm:#E0B35C; --warm-soft:#362B18;}
+  }
+  :root[data-theme="dark"][data-palette="verdant"]{--accent:#5FD4B4; --accent-soft:#17362F; --warm:#E0B35C; --warm-soft:#362B18;}
+
+  :root[data-palette="ember"]{--accent:#8C2F39; --accent-soft:#F6DEE0; --warm:#8F531A; --warm-soft:#F7E4D2;}
+  @media (prefers-color-scheme: dark){
+    :root[data-palette="ember"]:not([data-theme="light"]){--accent:#FF8A93; --accent-soft:#3E1F23; --warm:#E5A85A; --warm-soft:#382A18;}
+  }
+  :root[data-theme="dark"][data-palette="ember"]{--accent:#FF8A93; --accent-soft:#3E1F23; --warm:#E5A85A; --warm-soft:#382A18;}
 
   *{box-sizing:border-box;}
   body{
@@ -120,6 +139,16 @@
     padding:0; transition:border-color .15s, color .15s;
   }
   .theme-toggle:hover{border-color:var(--accent); color:var(--accent);}
+  .header-tools{display:flex; align-items:center; gap:12px;}
+  .palette-picker{display:flex; align-items:center; gap:6px;}
+  .swatch{
+    width:17px; height:17px; border-radius:50%; padding:0; cursor:pointer;
+    border:1px solid var(--line);
+    background:linear-gradient(135deg, var(--s1) 0 52%, var(--s2) 52% 100%);
+    transition:transform .15s ease;
+  }
+  .swatch:hover{transform:scale(1.15);}
+  .swatch[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper), 0 0 0 3.5px var(--accent);}
   .theme-toggle svg{width:15px; height:15px; display:block;}
   .theme-toggle .icon-moon{display:none;}
   :root[data-theme="dark"] .theme-toggle .icon-sun{display:none;}
@@ -255,11 +284,23 @@
   }
   .cat-label svg{width:15px; height:15px; flex:0 0 auto; color:var(--accent);}
   .tagset{display:flex; flex-wrap:wrap; gap:7px;}
-  .tagset span{font-size:13.5px; padding:5px 11px; border:1px solid var(--line); border-radius:7px; background:var(--paper-raise);}
+  .tagset span{font-size:13.5px; padding:5px 11px; border:1px solid var(--line); border-radius:7px; background:var(--paper-raise); display:inline-flex; align-items:center; gap:7px;}
 
   .skill-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
-  .skill-row{display:grid; grid-template-columns:1fr auto; align-items:center; gap:14px; font-size:14.5px;}
+  .skill-row{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px; font-size:14.5px;}
+  .skill-row.no-logo{grid-template-columns:1fr auto; gap:14px;}
   .skill-row .s-name{min-width:0;}
+  .s-logo{width:19px; height:19px; object-fit:contain; flex:0 0 auto; display:block;}
+  .s-logo.mono{filter:none;}
+  :root[data-theme="dark"] .s-logo.mono{filter:invert(1);}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .s-logo.mono{filter:invert(1);}
+  }
+
+  .soft-span{grid-column:1/-1; margin-top:4px;}
+  .soft-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px 30px;}
+  @media (max-width:820px){ .soft-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .soft-grid{grid-template-columns:1fr;} }
   .meter{display:flex; gap:3px; flex:0 0 auto;}
   .meter i{width:17px; height:5px; border-radius:2px; background:var(--line); display:block; transform-origin:left; transition:transform .45s ease;}
   .meter[data-level="1"] i:nth-child(1),
@@ -334,6 +375,19 @@
   }
 </style>
 
+<script>
+// runs before the page paints, so a saved theme/palette never flashes the default first
+(function(){
+  var root = document.documentElement;
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || t === 'light'){ root.setAttribute('data-theme', t); root.style.colorScheme = t; }
+    var p = localStorage.getItem('palette');
+    if (p && /^[a-z]+$/.test(p)) root.setAttribute('data-palette', p);
+  } catch (e) {}
+})();
+</script>
+
 <div class="wrap">
   <header>
     <div class="wordmark">Ojaswi Singh</div>
@@ -344,10 +398,18 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <span class="header-tools">
+      <span class="palette-picker" id="palettePicker" role="group" aria-label="Colour theme">
+        <button class="swatch" type="button" data-set="aperture" style="--s1:#2B3A8F;--s2:#B4622C" aria-label="Aperture colour theme" title="Aperture"></button>
+        <button class="swatch" type="button" data-set="orchid" style="--s1:#6B3FA0;--s2:#A83C68" aria-label="Orchid colour theme" title="Orchid"></button>
+        <button class="swatch" type="button" data-set="verdant" style="--s1:#1C6B5A;--s2:#86620F" aria-label="Verdant colour theme" title="Verdant"></button>
+        <button class="swatch" type="button" data-set="ember" style="--s1:#8C2F39;--s2:#8F531A" aria-label="Ember colour theme" title="Ember"></button>
+      </span>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark theme">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
       </button>
+      </span>
     </nav>
   </header>
 
@@ -536,9 +598,8 @@
   <section id="skills" class="reveal">
     <div class="section-head"><h2>Skills &amp; Certifications</h2></div>
     <div class="skill-legend">
-      <span class="legend-item"><span class="meter" data-level="3" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Research</b> &mdash; used in my research work</span></span>
-      <span class="legend-item"><span class="meter" data-level="2" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Projects</b> &mdash; shipped in a built project</span></span>
-      <span class="legend-item"><span class="meter" data-level="1" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Foundations</b> &mdash; coursework and practice</span></span>
+      <span class="legend-item"><span class="meter" data-level="3" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Advanced</b> &mdash; used daily in research and projects</span></span>
+      <span class="legend-item"><span class="meter" data-level="2" aria-hidden="true"><i></i><i></i><i></i></span><span><b>Intermediate</b> &mdash; working knowledge, still deepening</span></span>
     </div>
     <div class="skill-grid">
       <div class="skill-cat">
@@ -547,10 +608,10 @@
           Programming Languages
         </div>
         <ul class="skill-list">
-          <li class="skill-row"><span class="s-name">Python</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">C++</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Java</span><span class="meter" data-level="1" role="img" aria-label="Foundations level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">C</span><span class="meter" data-level="1" role="img" aria-label="Foundations level"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/python.svg" alt="" loading="lazy"><span class="s-name">Python</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/cplusplus.svg" alt="" loading="lazy"><span class="s-name">C++</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/java.svg" alt="" loading="lazy"><span class="s-name">Java</span><span class="meter" data-level="2" role="img" aria-label="Intermediate"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/c.svg" alt="" loading="lazy"><span class="s-name">C</span><span class="meter" data-level="2" role="img" aria-label="Intermediate"><i></i><i></i><i></i></span></li>
         </ul>
       </div>
 
@@ -560,9 +621,9 @@
           Core Computer Science
         </div>
         <ul class="skill-list">
-          <li class="skill-row"><span class="s-name">Problem Solving</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Data Structures &amp; Algorithms</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Object-Oriented Programming</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Problem Solving</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Data Structures &amp; Algorithms</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Object-Oriented Programming</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
         </ul>
       </div>
 
@@ -572,12 +633,12 @@
           AI &amp; Machine Learning
         </div>
         <ul class="skill-list">
-          <li class="skill-row"><span class="s-name">Computer Vision</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Deep Learning</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Machine Learning</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Natural Language Processing</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Generative AI</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Prompt Engineering</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Computer Vision</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Deep Learning</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Machine Learning</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Natural Language Processing</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Generative AI</span><span class="meter" data-level="2" role="img" aria-label="Intermediate"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Prompt Engineering</span><span class="meter" data-level="2" role="img" aria-label="Intermediate"><i></i><i></i><i></i></span></li>
         </ul>
       </div>
 
@@ -587,13 +648,13 @@
           Libraries &amp; Frameworks
         </div>
         <ul class="skill-list">
-          <li class="skill-row"><span class="s-name">TensorFlow</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">OpenCV</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Scikit-Learn</span><span class="meter" data-level="3" role="img" aria-label="Research level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Pandas</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">NumPy</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Streamlit</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
-          <li class="skill-row"><span class="s-name">Gradio</span><span class="meter" data-level="2" role="img" aria-label="Project level"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/tensorflow.svg" alt="" loading="lazy"><span class="s-name">TensorFlow</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/opencv.svg" alt="" loading="lazy"><span class="s-name">OpenCV</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/scikitlearn.svg" alt="" loading="lazy"><span class="s-name">Scikit-Learn</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/pandas.svg" alt="" loading="lazy"><span class="s-name">Pandas</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/numpy.svg" alt="" loading="lazy"><span class="s-name">NumPy</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo mono" src="logos/gradio.svg" alt="" loading="lazy"><span class="s-name">Gradio</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row"><img class="s-logo" src="logos/streamlit.svg" alt="" loading="lazy"><span class="s-name">Streamlit</span><span class="meter" data-level="2" role="img" aria-label="Intermediate"><i></i><i></i><i></i></span></li>
         </ul>
       </div>
 
@@ -602,7 +663,13 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7.5 9.5l3 2.5-3 2.5M13 15h4"/></svg>
           Tools
         </div>
-        <div class="tagset"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Google Colab</span><span>Jupyter</span></div>
+        <div class="tagset">
+          <span><img class="s-logo" src="logos/git.svg" alt="" loading="lazy">Git</span>
+          <span><img class="s-logo mono" src="logos/github.svg" alt="" loading="lazy">GitHub</span>
+          <span><img class="s-logo" src="logos/vscode.svg" alt="" loading="lazy">VS Code</span>
+          <span><img class="s-logo mono" src="logos/googlecolab.svg" alt="" loading="lazy">Google Colab</span>
+          <span><img class="s-logo" src="logos/jupyter.svg" alt="" loading="lazy">Jupyter</span>
+        </div>
       </div>
 
       <div class="skill-cat">
@@ -611,6 +678,26 @@
           Languages
         </div>
         <div class="tagset"><span>English &mdash; Professional</span><span>Hindi &mdash; Native</span><span>Spanish &mdash; Conversational</span></div>
+      </div>
+
+      <div class="skill-cat soft-span">
+        <div class="cat-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1.6a3.4 3.4 0 00-3.4-3.4H6.4A3.4 3.4 0 003 18.4V20"/><circle cx="9.5" cy="7.5" r="3.2"/><path d="M17 11.2a3.2 3.2 0 000-6.2M21 20v-1.6a3.4 3.4 0 00-2.6-3.3"/></svg>
+          Soft Skills &amp; Leadership
+        </div>
+        <ul class="skill-list soft-grid">
+          <li class="skill-row no-logo"><span class="s-name">Leadership</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Team Management</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Strategic Planning</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Operations Management</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Operational Execution</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Event Management</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Public Speaking &amp; Anchoring</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Professional Communication</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Creativity &amp; Innovation</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Public Relations &amp; Outreach</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+          <li class="skill-row no-logo"><span class="s-name">Graphic Design</span><span class="meter" data-level="3" role="img" aria-label="Advanced"><i></i><i></i><i></i></span></li>
+        </ul>
       </div>
     </div>
     <div class="skill-cat" style="margin-top:22px;">
@@ -701,12 +788,24 @@
 <script>
 (function(){
   var root = document.documentElement;
-  var stored = null;
-  try { stored = localStorage.getItem('theme'); } catch (e) {}
-  if (stored === 'dark' || stored === 'light'){
-    root.setAttribute('data-theme', stored);
-    root.style.colorScheme = stored;
+
+  var picker = document.getElementById('palettePicker');
+  var swatches = picker.querySelectorAll('.swatch');
+  function markActive(){
+    var current = root.getAttribute('data-palette') || 'aperture';
+    swatches.forEach(function(s){
+      s.setAttribute('aria-pressed', String(s.dataset.set === current));
+    });
   }
+  swatches.forEach(function(s){
+    s.addEventListener('click', function(){
+      root.setAttribute('data-palette', s.dataset.set);
+      try { localStorage.setItem('palette', s.dataset.set); } catch (e) {}
+      markActive();
+    });
+  });
+  markActive();
+
   document.getElementById('themeToggle').addEventListener('click', function(){
     var isDark = root.getAttribute('data-theme') === 'dark' ||
       (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
